@@ -5,6 +5,7 @@ import Testing
 final class KVSDataSourceTests {
     private let providerSpy: UserDefaultsSpy
     private let sut: KVSDataSource
+    private let key = "key"
 
     init() {
         providerSpy = UserDefaultsSpy()
@@ -13,7 +14,6 @@ final class KVSDataSourceTests {
 
     @Test("Should set string value")
     func testSetString() {
-        let key = "key"
         let value = "value"
 
         sut.set(value, using: key)
@@ -23,7 +23,6 @@ final class KVSDataSourceTests {
 
     @Test("Should set integer value")
     func testSetInteger() {
-        let key = "key"
         let value = 42
 
         sut.set(value, using: key)
@@ -33,7 +32,6 @@ final class KVSDataSourceTests {
 
     @Test("Should set boolean value")
     func testSetBoolean() {
-        let key = "key"
         let value = true
 
         sut.set(value, using: key)
@@ -43,7 +41,6 @@ final class KVSDataSourceTests {
 
     @Test("Should set dictionary value")
     func testSetDictionary() {
-        let key = "key"
         let value = ["name": "John", "age": "30"]
 
         sut.set(value, using: key)
@@ -76,7 +73,6 @@ final class KVSDataSourceTests {
 
     @Test("Should update existing value")
     func testUpdateValue() {
-        let key = "key"
         let initialValue = "initial"
         let updatedValue = "updated"
 
@@ -88,7 +84,6 @@ final class KVSDataSourceTests {
 
     @Test("Should delete value")
     func testDeleteValue() {
-        let key = "key"
         let value = "value"
 
         sut.set(value, using: key)
@@ -99,7 +94,6 @@ final class KVSDataSourceTests {
 
     @Test("Should overwrite value when setting same key twice")
     func testOverwriteValue() {
-        let key = "overwriteKey"
         let firstValue = "first"
         let secondValue = "second"
 
